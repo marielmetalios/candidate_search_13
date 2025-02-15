@@ -1,3 +1,6 @@
+// these are async, we need to wait on them because they're returning promises
+
+
 const searchGithub = async () => {
   try {
     const start = Math.floor(Math.random() * 100000000) + 1;

@@ -7,3 +7,7 @@ const SavedCandidates = () => {
 };
 
 export default SavedCandidates;
+
+// psuedo code steps first -- what does code need to do?
+// read local storage (convert string back to an array)
+// display on screen
