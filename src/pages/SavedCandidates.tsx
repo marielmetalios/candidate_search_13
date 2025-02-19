@@ -24,27 +24,27 @@ const SavedCandidates = () => {
     <>
       <div>
         <h2>Potential Candidates</h2>
-        <table>
+        <table className = "table">
           <thead>
             <tr>
               <th>Image</th>
-              <th>Name</th>
-              <th>Location</th>
+              <th>Username</th>
+              {/* <th>Location</th>
               <th>Email</th>
               <th>Company</th>
-              <th>Bio</th>
+              <th>Bio</th> */}
               <th>Reject</th>
             </tr>
           </thead>
           <tbody>
-            {candidates.map((candidate<Candidate>, index: number) => (
+            {candidates.map((candidate: Candidate, index: number) => (
               <tr key={candidate.login}>
-            <td><img src={candidate.avatar_url}/></td>
+            <td><img width = "100px" src={candidate.avatar_url}/></td>
             <td>{candidate.login}</td>
-            <td>{candidate.location}</td>
+            {/* <td>{candidate.location}</td>
             <td>{candidate.email}</td>
             <td>{candidate.company}</td>
-            <td>{candidate.bio}</td>
+            <td>{candidate.bio}</td> */}
             <td><button onClick={() => deleteRow(index)}>Reject</button></td>
             </tr>
           ))};

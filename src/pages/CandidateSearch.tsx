@@ -79,8 +79,13 @@ const CandidateSearch = () => {
           <div>No more candidates</div>
         ) : (
           <div>
-            <img src={candidate && candidate.avatar_url} />
+            <img width= "200px" src={candidate && candidate.avatar_url} />
             <p>{candidate && candidate.login}</p>
+            <p>{candidate && candidate.email}</p>
+            <p>{candidate && candidate.location}</p>
+            <p>{candidate && candidate.company}</p>
+            <p>{candidate && candidate.bio}</p>
+
           </div>
         )}
         <button onClick={nextCandidate}>-</button>
