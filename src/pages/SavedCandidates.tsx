@@ -1,7 +1,24 @@
+import { Candidate } from "../interfaces/Candidate.interface";
+import { useState, useEffect } from "react";
+
 const SavedCandidates = () => {
 
-  const candidates = JSON.parse(localStorage.getItem("candidates") as string) || [];
-  console.log(candidates);
+  const [candidates, setCandidates] = useState<Candidate[]>([])
+
+  useEffect(() => {
+    const storedCandidates: Candidate[] = JSON.parse(localStorage.getItem("candidates") as string) || [];
+    console.log(storedCandidates);
+    setCandidates(storedCandidates);
+  }, []);
+
+
+  //we want to update local storage after deleting a candidate, and update table!
+  const deleteRow = (index: number) => {
+    const updatedCandidates = [...candidates];
+    updatedCandidates.splice(index, 1); //remove that candidate at that index;
+    setCandidates(updatedCandidates);
+    localStorage.setItem("candidates", JSON.stringify(updatedCandidates)); 
+  }
 
   return (
     <>
@@ -20,17 +37,17 @@ const SavedCandidates = () => {
             </tr>
           </thead>
           <tbody>
-            {candidates.map((candidate, index) => (
+            {candidates.map((candidate<Candidate>, index: number) => (
               <tr key={candidate.login}>
             <td><img src={candidate.avatar_url}/></td>
-            <td>{candidate.name}</td>
+            <td>{candidate.login}</td>
             <td>{candidate.location}</td>
             <td>{candidate.email}</td>
             <td>{candidate.company}</td>
             <td>{candidate.bio}</td>
-            <td>placeholder</td>
+            <td><button onClick={() => deleteRow(index)}>Reject</button></td>
             </tr>
-          ))}
+          ))};
           </tbody>
         </table>
       </div>
