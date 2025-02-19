@@ -18,6 +18,16 @@ table, th, td {
   border: 1px solid black;
 }
 
+.removeButton {
+  background-color: red;
+  justify-content: center;
+}
+
+.addButton {
+  background-color: green;
+  justify-content: center;
+}
+
 a {
   font-weight: 500;
   color: #646cff;

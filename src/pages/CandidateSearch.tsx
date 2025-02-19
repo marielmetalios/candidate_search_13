@@ -88,8 +88,8 @@ const CandidateSearch = () => {
 
           </div>
         )}
-        <button onClick={nextCandidate}>-</button>
-        <button onClick={storeCandidate}>+</button>
+        <button className = "removeButton" onClick={nextCandidate}>-</button>
+        <button className = "addButton" onClick={storeCandidate}>+</button>
       </div>
     </div>
   );
